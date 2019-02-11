@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 2
+Release  : 4
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Summary  : No detailed summary available
@@ -20,9 +20,9 @@ Requires: backports.ssl_match_hostname
 Requires: cached-property
 Requires: certifi
 Requires: chardet
-Requires: colorama
 Requires: docker
 Requires: dockerpty
+Requires: dockerpy-creds
 Requires: docopt
 Requires: enum34
 Requires: functools32
@@ -94,7 +94,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549928656
+export SOURCE_DATE_EPOCH=1549929409
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
