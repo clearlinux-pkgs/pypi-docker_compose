@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 4
+Release  : 6
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Summary  : No detailed summary available
@@ -45,6 +45,7 @@ BuildRequires : requests
 BuildRequires : six
 BuildRequires : texttable
 BuildRequires : websocket_client
+Patch1: 0001-Allow-requests-2.21.patch
 
 %description
 Docker Compose
@@ -88,13 +89,14 @@ python3 components for the docker-compose package.
 
 %prep
 %setup -q -n compose-1.23.2
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549929409
+export SOURCE_DATE_EPOCH=1549996979
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
