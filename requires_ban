@@ -2,4 +2,3 @@
 # undesirable. One entry per line, no whitespace.
 pypiwin32
 colorama
-docker-pycreds
