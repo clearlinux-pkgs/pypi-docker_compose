@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 9
+Release  : 10
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Summary  : No detailed summary available
@@ -37,7 +37,6 @@ Requires: websocket_client
 BuildRequires : PyYAML
 BuildRequires : buildreq-distutils3
 BuildRequires : cached-property
-BuildRequires : docker
 BuildRequires : docker-py
 BuildRequires : dockerpty
 BuildRequires : docopt
@@ -97,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550169873
+export SOURCE_DATE_EPOCH=1550189340
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
