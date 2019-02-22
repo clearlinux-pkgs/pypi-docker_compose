@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 10
+Release  : 11
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Summary  : No detailed summary available
@@ -21,6 +21,7 @@ Requires: cached-property
 Requires: certifi
 Requires: chardet
 Requires: docker
+Requires: docker-py
 Requires: docker-pycreds
 Requires: dockerpty
 Requires: docopt
@@ -96,7 +97,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550189340
+export SOURCE_DATE_EPOCH=1550879242
+export LDFLAGS="${LDFLAGS} -fno-lto"
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
