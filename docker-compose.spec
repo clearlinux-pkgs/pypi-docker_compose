@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 11
+Release  : 12
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Summary  : No detailed summary available
