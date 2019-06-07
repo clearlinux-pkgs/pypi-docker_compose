@@ -4,10 +4,10 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 12
+Release  : 13
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
-Summary  : No detailed summary available
+Summary  : Fast, isolated development environments using Docker
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: docker-compose-bin = %{version}-%{release}
@@ -35,23 +35,37 @@ Requires: six
 Requires: texttable
 Requires: urllib3
 Requires: websocket_client
+BuildRequires : PySocks
 BuildRequires : PyYAML
 BuildRequires : buildreq-distutils3
 BuildRequires : cached-property
+BuildRequires : certifi
+BuildRequires : chardet
+BuildRequires : docker
 BuildRequires : docker-py
+BuildRequires : docker-pycreds
 BuildRequires : dockerpty
 BuildRequires : docopt
+BuildRequires : enum34
+BuildRequires : functools32
+BuildRequires : idna
+BuildRequires : ipaddress
 BuildRequires : jsonschema
 BuildRequires : requests
 BuildRequires : six
 BuildRequires : texttable
+BuildRequires : urllib3
 BuildRequires : websocket_client
 Patch1: 0001-Allow-requests-2.21.patch
 
 %description
 Docker Compose
 ==============
-![Docker Compose](logo.png?raw=true "Docker Compose Logo")
+Compose is a tool for defining and running multi-container Docker applications.
+With Compose, you use a Compose file to configure your application's services.
+Then, using a single command, you create and start all the services
+from your configuration. To learn more about all the features of Compose
+see [the list of features](https://github.com/docker/docker.github.io/blob/master/compose/overview.md#features).
 
 %package bin
 Summary: bin components for the docker-compose package.
@@ -97,8 +111,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550879242
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export SOURCE_DATE_EPOCH=1559914488
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
