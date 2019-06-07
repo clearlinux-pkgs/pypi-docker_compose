@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 13
+Release  : 14
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Summary  : Fast, isolated development environments using Docker
@@ -111,7 +111,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1559914488
+export SOURCE_DATE_EPOCH=1559918777
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
