@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.23.2
-Release  : 14
+Release  : 15
 URL      : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.23.2.tar.gz
 Summary  : Fast, isolated development environments using Docker
