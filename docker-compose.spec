@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.24.1
-Release  : 16
+Release  : 17
 URL      : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Summary  : No detailed summary available
@@ -59,6 +59,7 @@ BuildRequires : texttable
 BuildRequires : urllib3
 BuildRequires : websocket_client
 Patch1: 0001-Unfreeze-requests-dependency.patch
+Patch2: 0002-Unfreeze-PyYAML-and-jsonschema.patch
 
 %description
 Docker Compose
@@ -103,13 +104,14 @@ python3 components for the docker-compose package.
 %prep
 %setup -q -n compose-1.24.1
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566916791
+export SOURCE_DATE_EPOCH=1566917708
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

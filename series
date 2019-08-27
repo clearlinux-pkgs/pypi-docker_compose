@@ -1,1 +1,2 @@
 0001-Unfreeze-requests-dependency.patch
+0002-Unfreeze-PyYAML-and-jsonschema.patch
