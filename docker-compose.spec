@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.24.1
-Release  : 17
+Release  : 18
 URL      : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Summary  : No detailed summary available
@@ -26,7 +26,6 @@ Requires: docker-pycreds
 Requires: dockerpty
 Requires: docopt
 Requires: enum34
-Requires: functools32
 Requires: idna
 Requires: ipaddress
 Requires: jsonschema
@@ -48,7 +47,6 @@ BuildRequires : docker-pycreds
 BuildRequires : dockerpty
 BuildRequires : docopt
 BuildRequires : enum34
-BuildRequires : functools32
 BuildRequires : idna
 BuildRequires : ipaddress
 BuildRequires : jsonschema
@@ -111,7 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1566917708
+export SOURCE_DATE_EPOCH=1570484143
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
