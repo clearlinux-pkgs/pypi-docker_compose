@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.24.1
-Release  : 18
+Release  : 19
 URL      : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Summary  : No detailed summary available
@@ -25,7 +25,6 @@ Requires: docker-py
 Requires: docker-pycreds
 Requires: dockerpty
 Requires: docopt
-Requires: enum34
 Requires: idna
 Requires: ipaddress
 Requires: jsonschema
@@ -46,7 +45,6 @@ BuildRequires : docker-py
 BuildRequires : docker-pycreds
 BuildRequires : dockerpty
 BuildRequires : docopt
-BuildRequires : enum34
 BuildRequires : idna
 BuildRequires : ipaddress
 BuildRequires : jsonschema
@@ -109,7 +107,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570484143
+export SOURCE_DATE_EPOCH=1571078516
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -125,7 +123,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/docker-compose
-cp LICENSE %{buildroot}/usr/share/package-licenses/docker-compose/LICENSE
+cp %{_builddir}/compose-1.24.1/LICENSE %{buildroot}/usr/share/package-licenses/docker-compose/8ff574408142cd6bbb2a1b83302de24cb7b35e8b
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -140,7 +138,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/docker-compose/LICENSE
+/usr/share/package-licenses/docker-compose/8ff574408142cd6bbb2a1b83302de24cb7b35e8b
 
 %files python
 %defattr(-,root,root,-)
