@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.24.1
-Release  : 19
+Release  : 20
 URL      : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Summary  : No detailed summary available
