@@ -4,10 +4,10 @@
 #
 Name     : docker-compose
 Version  : 1.24.1
-Release  : 21
+Release  : 22
 URL      : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
-Summary  : No detailed summary available
+Summary  : Fast, isolated development environments using Docker
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: docker-compose-bin = %{version}-%{release}
@@ -60,7 +60,11 @@ Patch2: 0002-Unfreeze-PyYAML-and-jsonschema.patch
 %description
 Docker Compose
 ==============
-![Docker Compose](logo.png?raw=true "Docker Compose Logo")
+Compose is a tool for defining and running multi-container Docker applications.
+With Compose, you use a Compose file to configure your application's services.
+Then, using a single command, you create and start all the services
+from your configuration. To learn more about all the features of Compose
+see [the list of features](https://github.com/docker/docker.github.io/blob/master/compose/overview.md#features).
 
 %package bin
 Summary: bin components for the docker-compose package.
@@ -92,6 +96,7 @@ python components for the docker-compose package.
 Summary: python3 components for the docker-compose package.
 Group: Default
 Requires: python3-core
+Provides: pypi(docker-compose)
 
 %description python3
 python3 components for the docker-compose package.
@@ -99,6 +104,7 @@ python3 components for the docker-compose package.
 
 %prep
 %setup -q -n compose-1.24.1
+cd %{_builddir}/compose-1.24.1
 %patch1 -p1
 %patch2 -p1
 
@@ -107,7 +113,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571078516
+export SOURCE_DATE_EPOCH=1582919787
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
