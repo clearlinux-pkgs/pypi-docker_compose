@@ -4,10 +4,10 @@
 #
 Name     : docker-compose
 Version  : 1.24.1
-Release  : 22
+Release  : 23
 URL      : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
-Summary  : Fast, isolated development environments using Docker
+Summary  : Multi-container orchestration for Docker
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: docker-compose-bin = %{version}-%{release}
@@ -60,11 +60,7 @@ Patch2: 0002-Unfreeze-PyYAML-and-jsonschema.patch
 %description
 Docker Compose
 ==============
-Compose is a tool for defining and running multi-container Docker applications.
-With Compose, you use a Compose file to configure your application's services.
-Then, using a single command, you create and start all the services
-from your configuration. To learn more about all the features of Compose
-see [the list of features](https://github.com/docker/docker.github.io/blob/master/compose/overview.md#features).
+![Docker Compose](logo.png?raw=true "Docker Compose Logo")
 
 %package bin
 Summary: bin components for the docker-compose package.
@@ -96,7 +92,17 @@ python components for the docker-compose package.
 Summary: python3 components for the docker-compose package.
 Group: Default
 Requires: python3-core
-Provides: pypi(docker-compose)
+Provides: pypi(docker_compose)
+Requires: pypi(cached_property)
+Requires: pypi(docker)
+Requires: pypi(dockerpty)
+Requires: pypi(docopt)
+Requires: pypi(jsonschema)
+Requires: pypi(pyyaml)
+Requires: pypi(requests)
+Requires: pypi(six)
+Requires: pypi(texttable)
+Requires: pypi(websocket_client)
 
 %description python3
 python3 components for the docker-compose package.
@@ -113,8 +119,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582919787
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583533873
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
