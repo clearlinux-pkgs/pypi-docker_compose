@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.24.1
-Release  : 23
+Release  : 24
 URL      : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Source0  : https://github.com/docker/compose/archive/1.24.1/compose-1.24.1.tar.gz
 Summary  : Multi-container orchestration for Docker
@@ -26,7 +26,6 @@ Requires: docker-pycreds
 Requires: dockerpty
 Requires: docopt
 Requires: idna
-Requires: ipaddress
 Requires: jsonschema
 Requires: paramiko
 Requires: requests
@@ -46,7 +45,6 @@ BuildRequires : docker-pycreds
 BuildRequires : dockerpty
 BuildRequires : docopt
 BuildRequires : idna
-BuildRequires : ipaddress
 BuildRequires : jsonschema
 BuildRequires : paramiko
 BuildRequires : requests
@@ -119,14 +117,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583533873
+export SOURCE_DATE_EPOCH=1588358258
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
