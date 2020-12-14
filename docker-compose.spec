@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.27.4
-Release  : 26
+Release  : 27
 URL      : https://files.pythonhosted.org/packages/4a/b1/a1fdbc631212d9e27cc462d6b01a7ec50eed32ce1b5de80b2eb690b382c8/docker-compose-1.27.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4a/b1/a1fdbc631212d9e27cc462d6b01a7ec50eed32ce1b5de80b2eb690b382c8/docker-compose-1.27.4.tar.gz
 Summary  : Multi-container orchestration for Docker
