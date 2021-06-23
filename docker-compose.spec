@@ -4,7 +4,7 @@
 #
 Name     : docker-compose
 Version  : 1.29.2
-Release  : 33
+Release  : 34
 URL      : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Summary  : Multi-container orchestration for Docker
@@ -54,6 +54,7 @@ BuildRequires : requests
 BuildRequires : texttable
 BuildRequires : urllib3
 BuildRequires : websocket_client
+Patch1: 0001-Remove-upper-bound-pin-on-websocket-client.patch
 
 %description
 ==============
@@ -107,13 +108,14 @@ python3 components for the docker-compose package.
 %prep
 %setup -q -n docker-compose-1.29.2
 cd %{_builddir}/docker-compose-1.29.2
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1622653652
+export SOURCE_DATE_EPOCH=1624469557
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
