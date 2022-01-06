@@ -3,3 +3,4 @@
 docker
 enum34
 functools32
+pypi(backports.shutil_get_terminal_size)
