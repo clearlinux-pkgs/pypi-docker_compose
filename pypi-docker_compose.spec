@@ -4,7 +4,7 @@
 #
 Name     : pypi-docker_compose
 Version  : 1.29.2
-Release  : 43
+Release  : 44
 URL      : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Summary  : Multi-container orchestration for Docker
@@ -16,7 +16,6 @@ Requires: pypi-docker_compose-python = %{version}-%{release}
 Requires: pypi-docker_compose-python3 = %{version}-%{release}
 Requires: docker-py
 BuildRequires : buildreq-distutils3
-BuildRequires : docker-py
 BuildRequires : pypi(cached_property)
 BuildRequires : pypi(certifi)
 BuildRequires : pypi(chardet)
@@ -110,7 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641511325
+export SOURCE_DATE_EPOCH=1641675493
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
