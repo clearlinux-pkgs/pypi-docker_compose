@@ -4,7 +4,7 @@
 #
 Name     : pypi-docker_compose
 Version  : 1.29.2
-Release  : 47
+Release  : 48
 URL      : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Summary  : Multi-container orchestration for Docker
@@ -100,7 +100,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1653058933
+export SOURCE_DATE_EPOCH=1655408880
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -111,6 +111,7 @@ export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . PyYAML
+pypi-dep-fix.py . jsonschema
 python3 setup.py build
 
 pushd ../buildavx2/
@@ -120,6 +121,7 @@ export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
 export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
 pypi-dep-fix.py . PyYAML
+pypi-dep-fix.py . jsonschema
 python3 setup.py build
 
 popd
@@ -130,6 +132,7 @@ mkdir -p %{buildroot}/usr/share/package-licenses/pypi-docker_compose
 cp %{_builddir}/docker-compose-1.29.2/LICENSE %{buildroot}/usr/share/package-licenses/pypi-docker_compose/8ff574408142cd6bbb2a1b83302de24cb7b35e8b
 python3 -tt setup.py build  install --root=%{buildroot}
 pypi-dep-fix.py %{buildroot} PyYAML
+pypi-dep-fix.py %{buildroot} jsonschema
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
