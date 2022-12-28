@@ -4,7 +4,7 @@
 #
 Name     : pypi-docker_compose
 Version  : 1.29.2
-Release  : 55
+Release  : 56
 URL      : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1f/6a/f4703077123ad0c90026985cb9780c0703922c2a5451ab93fb63511d915a/docker-compose-1.29.2.tar.gz
 Summary  : Multi-container orchestration for Docker
@@ -36,6 +36,9 @@ BuildRequires : pypi(requests)
 BuildRequires : pypi(texttable)
 BuildRequires : pypi(urllib3)
 BuildRequires : pypi(websocket_client)
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 Patch1: 0001-Remove-upper-bound-pin-on-websocket-client.patch
 
 %description
@@ -100,15 +103,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656407211
+export SOURCE_DATE_EPOCH=1672269222
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 pypi-dep-fix.py . PyYAML
 pypi-dep-fix.py . jsonschema
@@ -129,7 +132,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-docker_compose
-cp %{_builddir}/docker-compose-1.29.2/LICENSE %{buildroot}/usr/share/package-licenses/pypi-docker_compose/8ff574408142cd6bbb2a1b83302de24cb7b35e8b
+cp %{_builddir}/docker-compose-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-docker_compose/8ff574408142cd6bbb2a1b83302de24cb7b35e8b || :
 python3 -tt setup.py build  install --root=%{buildroot}
 pypi-dep-fix.py %{buildroot} PyYAML
 pypi-dep-fix.py %{buildroot} jsonschema
